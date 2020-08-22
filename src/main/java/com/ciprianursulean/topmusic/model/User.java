@@ -1,28 +1,30 @@
 package com.ciprianursulean.topmusic.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "users")
 @Data
-public class Comment {
+public class User {
     @Id
     @GeneratedValue(generator = "sequence")
-    @Column(name = "comment_id")
-    private int commentId;
-
     @Column(name = "user_id")
     private int userId;
 
-    @Column(name = "song_id")
-    private int songId;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name = "content")
-    private String content;
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "admin_status")
+    private String adminStatus;
+
+    @Column(name = "vote_status")
+    private String voteStatus;
 
     @Column(name = "created_at")
     private Date createdAt;
