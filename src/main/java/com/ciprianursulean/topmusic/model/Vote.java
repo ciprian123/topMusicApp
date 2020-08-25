@@ -1,11 +1,23 @@
 package com.ciprianursulean.topmusic.model;
 
 import jdk.jfr.Enabled;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "getAllVotes",
+                query = "select v from Vote v"
+        ),
+        @NamedQuery(
+                name = "findVoteWithInfoGiven",
+                query = "select v from Vote v where v.userId = :userId and v.songId = :songId"
+        )
+    }
+)
 @Entity
 @Table(name = "votes")
 @Data
